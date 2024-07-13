@@ -71,13 +71,71 @@ sudo apt upgrade
 ```
 sudo apt install ros-foxy-desktop python3-argcomplete
 ```
+> [!NOTE]
+> This will take time.
+
+<img src= "https://github.com/user-attachments/assets/1db6d731-97ad-41a2-afc6-5fae79943d3e" alt= "image" width= 400>
 
 - Development tools: Compilers and other tools to build ROS packages
 ```
 sudo apt install ros-dev-tools
 ```
+<img src= "https://github.com/user-attachments/assets/5d19e271-34a3-4d9d-92db-bed04b41648f" alt= "image" width= 400>
+
+## Environment Setup
+
+- Set up your environment by sourcing the following file.
+
+```
+# Replace ".bash" with your shell if you're not using bash
+# Possible values are: setup.bash, setup.sh, setup.zsh
+source /opt/ros/foxy/setup.bash
+```
+
+<img src= "https://github.com/user-attachments/assets/b52770f5-271a-4061-b56d-afc042db0019" alt= "image" width= 400>
+
+## Try some examples 
+
+The provided commands demonstrate a basic example of inter-process communication in ROS 2 (Robot Operating System 2) using the talker and listener nodes. These nodes are implemented in both C++ and Python, showing the flexibility of ROS 2 in supporting multiple programming languages. <br>
+
+- If you installed ros-foxy-desktop above you can try some examples.
+
+- In one terminal, source the setup file and then run a C++ talker:
+
+```
+source /opt/ros/foxy/setup.bash
+ros2 run demo_nodes_cpp talker
+```
+
+- The talker node continuously publishes messages with incrementing numbers.
+- Each message is prefixed with "Hello World:" followed by a unique integer.
+
+------------------------------------------------------------------------------------------
+
+- In another terminal source the setup file and then run a Python listener:
+```
+source /opt/ros/foxy/setup.bash
+ros2 run demo_nodes_py listener
+```
+- The listener node receives and prints the messages published by the talker.
+- Each received message is prefixed with "I heard:" followed by the content of the message.
+
 > [!NOTE]
-> This will take minutes. 
+> You should see the talker saying that it’s Publishing messages and the listener saying I heard those messages. This verifies both the C++ and Python APIs are working properly. Hooray!
+
+**output:**
+
+<img src= "https://github.com/user-attachments/assets/56787c34-752f-4c35-95be-a5380d7005ab" alt= "image" width= 400>
+
+> [!NOTE]
+> This won't stop unless you typed ctr + c.
+
+
+
+
+
+
+
 
 
 
